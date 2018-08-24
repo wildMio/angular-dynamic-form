@@ -1,0 +1,6 @@
+<mat-form-field [formGroup]="group">
+  <input matInput readonly (click)="picker.open()" [matDatepicker]="picker" [placeholder]="isAsync ? (config.label | async) : config.label" [formControlName]="config.key">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="controlRef.invalid">error</mat-error>
+</mat-form-field>

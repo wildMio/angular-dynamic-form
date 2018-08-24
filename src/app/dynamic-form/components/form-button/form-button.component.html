@@ -1,0 +1,5 @@
+<div [formGroup]="group">
+  <button mat-raised-button type="submit">
+    {{ isAsync ? (config.label | async) : config.label }}
+  </button>
+</div>

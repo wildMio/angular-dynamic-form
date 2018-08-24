@@ -1,0 +1,10 @@
+<div [formGroup]="group" style="display: flex; flex-flow: row wrap;">
+  <mat-label>{{ isAsync(config.label) ? (config.label | async) : config.label }}</mat-label>
+  <div>
+    <mat-radio-group style="display: inline-flex; flex-flow: row wrap;" [formControlName]="config.key">
+      <mat-radio-button *ngFor="let option of config.options" [value]="option.value">
+        {{ isAsync(option.label) ? (option.label | async) : option.label }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>

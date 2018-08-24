@@ -1,0 +1,6 @@
+<div [formGroup]="group">
+  <mat-form-field>
+    <input matInput [placeholder]="isAsync ? (config.label | async) : config.label" [formControlName]="config.key">
+    <mat-error *ngIf="controlRef.invalid">{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>
