@@ -1,8 +1,8 @@
 <div [formGroup]="group" style="display: flex; flex-flow: row wrap;">
-  <mat-label>{{ isAsync(config.label) ? (config.label | async) : config.label }}</mat-label>
+  <mat-label>{{ config.label }}</mat-label>
   <div>
     <mat-slide-toggle [checked]="config.toggle" (change)="toggleCheckbox()">
     </mat-slide-toggle>
-    <mat-checkbox *ngFor="let option of config.options" [checked]="checkCheckbox(option.value)" (change)="changeCheckbox($event, option.value)" [disabled]="!config.toggle" [indeterminate]="!config.toggle">{{ isAsync(option.label) ? (option.label | async) : option.label }}</mat-checkbox>
+    <mat-checkbox *ngFor="let option of config.options" [checked]="checkCheckbox(option.value)" (change)="changeCheckbox($event, option.value)" [disabled]="!config.toggle" [indeterminate]="!config.toggle">{{ option.label }}</mat-checkbox>
   </div>
 </div>

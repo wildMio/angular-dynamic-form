@@ -26,7 +26,6 @@ export class DynamicFormComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.form = this.createGroup();
-    this.addMoreValidation();
   }
 
   ngOnChanges() {
@@ -59,22 +58,9 @@ export class DynamicFormComponent implements OnInit, OnChanges {
     return this.fb.control({ disabled, value }, validation);
   }
 
-  addMoreValidation() {
-    this.controls
-      .filter(control => control.validationWithOther)
-      .forEach(control => {
-        const validations = control.validationWithOther;
-        this.form.get(control.key).setValidators([...control.validation, ...validations.map(({validator, target}) => {
-          return () => validator(this.form.get(target));
-        })]);
-        this.form.get(control.key).updateValueAndValidity();
-      });
-  }
-
   handleSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(this.form);
     if (this.form.valid) {
       this.submit.emit(this.form.value);
     } else {

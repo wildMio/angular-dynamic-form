@@ -20,16 +20,13 @@ export class FormCheckboxsComponent implements OnInit {
   ngOnInit() {
   }
 
-  isAsync(label) {
-    return typeof(label) !== 'string' ? true : false;
-  }
-
   toggleCheckbox() {
     this.controlRef.setValue([]);
     this.config.toggle = !this.config.toggle;
   }
 
   checkCheckbox(value) {
+    if (!Array.isArray(this.controlRef.value)) { return null; }
     return this.controlRef.value.some(originValue => originValue === value) ? true : false;
   }
 

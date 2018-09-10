@@ -15,10 +15,6 @@ export class FormDatepickerComponent implements OnInit {
     return this.group.get(this.config.key);
   }
 
-  get isAsync() {
-    return typeof(this.config.label) !== 'string' ? true : false;
-  }
-
   constructor() { }
 
   ngOnInit() {

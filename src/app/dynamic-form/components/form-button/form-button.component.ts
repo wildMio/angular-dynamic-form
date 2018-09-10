@@ -11,10 +11,6 @@ export class FormButtonComponent implements OnInit {
   config: FieldConfig;
   group: FormGroup;
 
-  get isAsync() {
-    return typeof(this.config.label) !== 'string' ? true : false;
-  }
-
   constructor() { }
 
   ngOnInit() {

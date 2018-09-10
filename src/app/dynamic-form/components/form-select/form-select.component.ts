@@ -20,8 +20,4 @@ export class FormSelectComponent implements OnInit {
   ngOnInit() {
   }
 
-  isAsync(label) {
-    return typeof(label) !== 'string' ? true : false;
-  }
-
 }
